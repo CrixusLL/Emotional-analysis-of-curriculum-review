@@ -1,2 +1,6 @@
 # Emotional-analysis-of-curriculum-review
-This is the course review sentiment analysis source code
+### 注意事项
+
+* 每个人一个同名文件夹，放自己当前的成果，供大家一起讨论学习
+* 每个人在自己的文件夹里面写一个‘README.md’，包括自己实现的效果，目前的进度，待解决的问题等
+* 大家互相学习，共同进步，加油！

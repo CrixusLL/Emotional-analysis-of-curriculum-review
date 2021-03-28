@@ -132,7 +132,7 @@ class icourse163_spider():
 
     def save_csv(self):     #保存所有评论数据
         df=pd.DataFrame(self.evaluation)
-        df.to_csv("./reviews/reviews9.csv",encoding='utf-8',index=False)
+        df.to_csv("./reviews/comments9.csv",encoding='utf-8',index=False)
     
     def run_get_courses_ids(self):  #提取所有课程id
         thread_list=[]

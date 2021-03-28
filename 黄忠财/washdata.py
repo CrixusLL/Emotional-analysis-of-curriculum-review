@@ -27,11 +27,13 @@ def washfile(file):    #传入文件路径
     #去除重复值
     df=pd.DataFrame(filelist)
     df.drop_duplicates(inplace=True)
-    df.to_csv("washedtest1.csv",encoding='ANSI',index=False)
+    df=df.sort_values(by='分类')
+    df=df[0:14000]
+    df.to_csv("washedtest.csv",encoding='UTF-8',index=False)
     print("washing finshed")
 
 
-filename='3.csv'
+filename='reviews.csv'
 filelist=washfile(filename)
 
 

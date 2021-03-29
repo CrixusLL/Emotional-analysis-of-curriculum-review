@@ -79,10 +79,17 @@ class icourse163_spider():
                 "courseStatus":30
                 }
             page=0
-            while(True):    #请求每个大学所有页的课程id
+            while True:    #请求每个大学所有页的课程id
                 page+=1
                 data["p"]=page
-                r=requests.post(url+"?csrfKey="+self.csrfKey,headers=self.headers,data=data)
+                flag=False
+                while flag==False:
+                    try:
+                        r=requests.post(url+"?csrfKey="+self.csrfKey,headers=self.headers,data=data)
+                        flag=True
+                    except:     #防止服务器端无响应
+                        print("Connection Error! Retrying......")
+                        continue
                 res=json.loads(r.content.decode())
                 if res["result"]["list"]==None:break
                 for i in res["result"]["list"]:
@@ -101,10 +108,17 @@ class icourse163_spider():
                 "orderBy":3
             }
             page=0
-            while(True):    #请求每个课程所有页的评论数据
+            while True:    #请求每个课程所有页的评论数据
                 page+=1
                 data["pageIndex"]=page
-                r=requests.post(url+"?csrfKey="+self.csrfKey,headers=self.headers,data=data)
+                flag=False
+                while flag==False:
+                    try:
+                        r=requests.post(url+"?csrfKey="+self.csrfKey,headers=self.headers,data=data)
+                        flag=True
+                    except:     #防止服务器端无响应
+                        print("Connection Error! Retrying......")
+                        continue
                 res=json.loads(r.content.decode())
                 if res["result"]["list"]==[]:break
                 for i in res["result"]["list"]:
@@ -116,7 +130,7 @@ class icourse163_spider():
     def __parse_comments(self):     #生成评论数据列表
         while True:
             data=self.course_comments.get()
-            d={"评论":data["content"],"分类":1 if data["mark"]>3 else 0}
+            d={"comment":data["content"],"mark":data["mark"]}
             self.evaluation.append(d)
             self.course_comments.task_done()
     

@@ -50,7 +50,7 @@ def __get_course_comments(self)
         "orderBy":3
         }
 ```
-通过请求ajax获取每个课程所有的评论数据，即POST data中的"courseId".\
+通过请求ajax获取每个课程所有的评论数据，即POST data中的"courseId".
 ```python
 def __parse_comments(self)
 ```

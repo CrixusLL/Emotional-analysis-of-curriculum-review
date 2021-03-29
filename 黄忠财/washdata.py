@@ -12,7 +12,7 @@ def washfile(file):    #传入文件路径
             d={}
             for k,v in row.items():
                 d[k]=v
-            testword=d["评论"]
+            testword=d["comment"]
             #去除长度小于6
             if len(testword)<6:
                 continue
@@ -24,17 +24,14 @@ def washfile(file):    #传入文件路径
                     continue
                 else:
                     filelist.append(d)
-    #去除重复值
+    #去除重复值根据标签值排序
     df=pd.DataFrame(filelist)
     df.drop_duplicates(inplace=True)
-    df=df.sort_values(by='分类')
-    df=df[0:14000]
-    df.to_csv("washedtest.csv",encoding='UTF-8',index=False)
+    df=df.sort_values(by='mark')
+    postname=file+'washed'
+    df.to_csv(path_or_buf=postname,encoding='UTF-8',index=False)
     print("washing finshed")
 
-
-filename='reviews.csv'
-filelist=washfile(filename)
-
-
-
+for i in range (2):
+    filename='comments'+str(i)+'.csv'
+    filelist=washfile(filename)

@@ -51,7 +51,6 @@ def __get_course_comments(self)
         }
 ```
 通过请求ajax获取每个课程所有的评论数据，即POST data中的"courseId".\
-**这里舍弃给分为3的评论（>3赋值为1，<3赋值为0）.**
 ```python
 def __parse_comments(self)
 ```
@@ -79,5 +78,6 @@ if __name__=="__main__":
     #spider.run_parse_comments() #后跑
 ```
 ### **原始csv文件效果预览**
-第一列为评论comment，第二列为情感值sentiment **（打分>3赋值为1，<3赋值为0）**
+第一列为评论comment，第二列为评分mark
+**下一步将进行人工筛选标注情感值0和1**
 ![avatar](./comments_origin/data_preview.png)

@@ -10,7 +10,7 @@
 4.Creating Dataloader\
 5.Building BERT model\
 6.Creating BERT Trainer\
-7.Training Start\
+7.Training Start
 
 **参数在Args()类里设置**
 

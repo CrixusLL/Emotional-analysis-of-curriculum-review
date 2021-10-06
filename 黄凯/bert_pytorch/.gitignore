@@ -1,0 +1,5 @@
+data/wiki_zh/
+wiki_zh_2019.zip
+__pycache__/
+modeling/__pycache__/
+preProcess/__pycache__/

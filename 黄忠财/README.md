@@ -8,5 +8,5 @@ emotion.ipynb
 目前训练算法可以达到95%的准确率
 
 
-主动学习.ipynb
-更新了LSTM+主动学习版本
+主动学习.ipynb  
+更新了带有主动学习功能的lstm
